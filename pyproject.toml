@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frame-chef"
+version = "0.1.0"
+description = "把 PresentMon 帧时间变成 1% Low、卡顿和配置取舍，找到帧率甜点"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "QKXWX"}]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+
+[project.scripts]
+frame-chef = "frame_chef.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["frame_chef*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = ["E501"]
